@@ -1,0 +1,16 @@
+*{
+    margin: 5px;
+}
+html, body{
+    margin: 0;
+    padding: 0;
+}
+.pane{
+    border: 1.5px dashed black;
+}
+#servers-pane{
+    width: 300px;
+}
+#add-server-pane{
+    width: 300px;
+}
