@@ -10,7 +10,7 @@ class FilesHelper{
         }
 
         //it is a folder, copy its files & sub-folders
-        @mkdir($target);
+        @mkdir($target, 0700, true);
         $d = dir($source);
         $navFolders = array('.', '..');
         while (false !== ($fileEntry=$d->read() )) {//copy one by one
@@ -18,7 +18,6 @@ class FilesHelper{
             if (in_array($fileEntry, $navFolders) ) {
                 continue;
             }
-
             //do copy
             $s = "$source/$fileEntry";
             $t = "$target/$fileEntry";
@@ -27,4 +26,17 @@ class FilesHelper{
         $d->close();
     }
 
+    public static function getProperties($file){
+        $properties = array();
+
+        if (!$file) return null;
+        while (($line = fgets($file)) !== false) {
+            $pos = strpos($line, '=');
+            if (!$pos) continue;
+            $name = substr($line, 0, $pos);
+            $value = substr($line, $pos + 1, strlen($line));
+            $properties[$name] = $value;
+        }
+        return $properties;
+    }
 }
