@@ -50,7 +50,7 @@ Git is a version control system, that records the version of this project. It is
   - Create database in your server named xjvs
   - Import the `xjvs.sql` file in the root folder of the project.
   - Note : Updated sql db file should always reflect on your local machine before working on it. If there is any changes for db, please export the database .sql file in the project.
-  - Please update `classes/Models/Database/Database.php/` class with your server's configuration. 
+  - Please update `classes/Models/Database/Database.php` class with your server's configuration. 
     
 ### Running the System 
 #### XAMPP Users 
