@@ -39,4 +39,12 @@ class FilesHelper{
         }
         return $properties;
     }
+
+    public static function array_to_ini($array){
+        $result = "";
+        foreach ($array as $key => $value) {
+            $result .= $key .'='. trim(json_encode($value), '"'). "\r\n";
+        }
+        return $result;
+    }
 }

@@ -12,7 +12,20 @@ class ServerController{
         FilesHelper::copy($dir . 'templates/1.21', $dir . "$id");
 
         $serverFilesDir = $dir . "$id";
-        echo FilesHelper::getProperties(readfile($serverFilesDir . "/server.properties"));
+        $serverProperties = parse_ini_file($serverFilesDir . "/server.properties", true, INI_SCANNER_TYPED);
+
+        $serverProperties["motd"] = $name;
+        $serverProperties["seed"] = $seed;
+        
+        // var_dump($serverProperties);
+        // echo '<br><br>';
+        // var_dump(FilesHelper::array_to_ini($serverProperties) );
+        // echo '<br><br>';
+
+        $serverPropertiesFile = fopen($serverFilesDir . '/server.properties', 'w');
+        ftruncate($serverPropertiesFile, 0);
+        fwrite( $serverPropertiesFile, FilesHelper::array_to_ini($serverProperties));
+        fclose($serverPropertiesFile);
     }
     public function startServer($id){
 
