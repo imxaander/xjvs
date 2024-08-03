@@ -29,10 +29,22 @@ class ServerController{
         
         $batchFileLocation =  __DIR__ . '/../../servers/' . $id . '/start.bat';
         echo $batchFileLocation;
-        exec('c:\WINDOWS\system32\cmd.exe /c START ' . $batchFileLocation);
+        
+        $cmd = 'c:\WINDOWS\system32\cmd.exe /c START ' . $batchFileLocation . " $id";
+        pclose(popen("start /B ".$cmd, "r")); 
+
+        header('Location: /xjvs');
         // system("cmd /c " . $batchFileLocation . '/start.bat');
     }
     public function startServer($id){
+        $batchFileLocation =  __DIR__ . '/../../servers/' . $id . '/start.bat';
+        echo $batchFileLocation;
+        
+        $cmd = 'c:\WINDOWS\system32\cmd.exe /c START ' . $batchFileLocation . " $id";
+        pclose(popen("start /B ".$cmd, "r")); 
+    }
 
+    public function fetchServers($uid){
+        
     }
 }

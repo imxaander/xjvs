@@ -4,8 +4,21 @@ require_once '../../vendor/autoload.php';
 
 use App\Controllers\ServerController;
 
-if(isset($_POST["create-server"])){
+if(isset($_POST["request"])){
     // validations
-    $serverCon = new ServerController();
-    $serverCon->createServer($_POST['name'], $_POST['seed']);
+    switch($_POST["request"]){
+        case 'create-server':
+            $serverCon = new ServerController();
+            $serverCon->createServer($_POST['name'], $_POST['seed']);
+        break;
+    }
+
+}
+
+
+if(isset($_GET["request"])){
+    switch ($_GET["request"]){
+        case 'server-list':
+            break;
+    }
 }
