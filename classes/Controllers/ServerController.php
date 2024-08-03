@@ -26,6 +26,11 @@ class ServerController{
         ftruncate($serverPropertiesFile, 0);
         fwrite( $serverPropertiesFile, FilesHelper::array_to_ini($serverProperties));
         fclose($serverPropertiesFile);
+        
+        $batchFileLocation =  __DIR__ . '/../../servers/' . $id . '/start.bat';
+        echo $batchFileLocation;
+        exec('c:\WINDOWS\system32\cmd.exe /c START ' . $batchFileLocation);
+        // system("cmd /c " . $batchFileLocation . '/start.bat');
     }
     public function startServer($id){
 
