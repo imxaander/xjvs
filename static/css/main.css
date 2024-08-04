@@ -9,7 +9,7 @@ html, body{
     border: 1.5px dashed black;
 }
 #servers-pane{
-    width: 300px;
+    width: 400px;
 }
 #add-server-pane{
     width: 300px;

@@ -11,4 +11,12 @@ class ServerModel extends Database{
         $id = $this->conn->lastInsertId();
         return $id;
     }
+
+    public function getUserServers($uid){
+        $stmt = $this->conn->prepare("SELECT * FROM servers WHERE user_id = $uid");
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // var_dump($result);
+        return $result;
+    }
 }

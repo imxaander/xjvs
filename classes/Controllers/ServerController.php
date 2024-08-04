@@ -44,7 +44,10 @@ class ServerController{
         pclose(popen("start /B ".$cmd, "r")); 
     }
 
-    public function fetchServers($uid){
-        
+    public function fetchUserServers($uid){
+        $serverModel = new ServerModel();
+        $userServers = $serverModel->getUserServers($uid);
+
+        return $userServers;
     }
 }

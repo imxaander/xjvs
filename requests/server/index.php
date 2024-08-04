@@ -1,5 +1,4 @@
 <?php
-require_once '../../helper/functions.php';
 require_once '../../vendor/autoload.php';
 
 use App\Controllers\ServerController;
@@ -15,10 +14,13 @@ if(isset($_POST["request"])){
 
 }
 
-
 if(isset($_GET["request"])){
+    $response = 'No Response';
     switch ($_GET["request"]){
-        case 'server-list':
+        case 'user-server-list':
+            $serverCon = new ServerController();
+            $response = $serverCon->fetchUserServers($_GET['uid']);
             break;
     }
+    echo json_encode($response);
 }
