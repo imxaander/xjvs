@@ -11,6 +11,12 @@ class ServerModel extends Database{
         $id = $this->conn->lastInsertId();
         return $id;
     }
+    public function destroyServer($sid){
+        $stmt = $this->conn->prepare("DELETE FROM servers WHERE id = $sid ");
+        $stmt->execute();
+        $id = $this->conn->lastInsertId();
+        return $id;
+    }
 
     public function getUserServers($uid){
         $stmt = $this->conn->prepare("SELECT * FROM servers WHERE user_id = $uid");

@@ -19,9 +19,10 @@
               <td>Action</td>
             </thead>
             <tbody id="user-server-list">
+              <i>No servers owned...</i>
             </tbody>
           </table>
-          <i>No servers owned...</i>
+
         </div>
       </div>
 
