@@ -28,7 +28,7 @@ class ServerController{
 
         $serverProperties["motd"] = $name;
         $serverProperties["seed"] = $seed;
-        $serverProperties["port"] = $randport;
+        $serverProperties["server-port"] = $randport;
         
         // var_dump($serverProperties);
         // echo '<br><br>';
