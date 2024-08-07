@@ -5,8 +5,8 @@ use PDO;
 class ServerModel extends Database{
 
     // this function returns id of that particular shit man....
-    public function createNewServer($name, $seed){
-        $stmt = $this->conn->prepare("INSERT INTO servers(user_id, name, seed, status) VALUES(1, '$name', '$seed', 'stopped'); ");
+    public function createNewServer($name, $seed, $port, $address, $tunnel_id){
+        $stmt = $this->conn->prepare("INSERT INTO servers(user_id, name, seed, port, address, tunnel_id, status) VALUES(1, '$name', '$seed', '$port', '$address','$tunnel_id', 'stopped'); ");
         $stmt->execute();
         $id = $this->conn->lastInsertId();
         return $id;
