@@ -11,9 +11,7 @@ if(isset($_POST["request"])){
             $serverCon->createServer($_POST['name'], $_POST['seed']);
         break;
     }
-
 }
-
 if(isset($_GET["request"])){
     $response = 'No Response';
     switch ($_GET["request"]){
